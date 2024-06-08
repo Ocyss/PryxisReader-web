@@ -1,0 +1,49 @@
+{
+  "name": "vite-template-solid",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "git:test": "simple-git-hooks"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.13.5",
+    "solid-js": "^1.8.17",
+    "solidjs-use": "^2.3.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.20.0",
+    "@types/node": "^20.14.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.1",
+    "eslint-plugin-solid": "^0.13.2",
+    "lint-staged": "^15.2.5",
+    "picocolors": "^1.0.1",
+    "scss": "^0.2.4",
+    "simple-git-hooks": "^2.11.1",
+    "solid-devtools": "^0.30.1",
+    "solid-labels": "^0.16.0",
+    "typescript": "^5.4.5",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
+    "vite": "^4.5.3",
+    "vite-plugin-pages": "^0.32.2",
+    "vite-plugin-solid": "^2.10.2",
+    "vite-plugin-solid-labels": "^0.16.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "npx tsx scripts/commitlint.ts"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
