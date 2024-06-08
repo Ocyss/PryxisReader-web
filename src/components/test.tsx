@@ -7,24 +7,24 @@ export default function Test() {
   return (
     <>
       <div>
-        <button onClick={() => setCount(count() + 2)}>
+        <button class="btn btn-outline btn-primary" onClick={() => setCount(count() + 2)}>
           Test(
           {count()}
           )
         </button>
-        <button onClick={() => setCount(count() * 3)}>
+        <button class="btn btn-outline btn-primary" onClick={() => setCount(count() * 3)}>
           Test(
           {count()}
           )
         </button>
       </div>
       <div>
-        <button onClick={() => countLabel += 3}>
+        <button class="btn btn-outline btn-primary" onClick={() => countLabel += 3}>
           TestLabel(
           {countLabel}
           )
         </button>
-        <button onClick={() => countLabel *= 2}>
+        <button class="btn btn-outline btn-primary" onClick={() => countLabel *= 2}>
           TestLabel(
           {countLabel}
           )

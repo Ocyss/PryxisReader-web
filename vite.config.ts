@@ -10,7 +10,8 @@ import solidLabels from 'vite-plugin-solid-labels'
 // https://github.com/hannoeru/vite-plugin-pages?tab=readme-ov-file#solid-1
 // import Pages from 'vite-plugin-pages' // TODO: not supported
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
+
+import { VitePWA } from 'vite-plugin-pwa'
 
 const pathSrc = resolve(__dirname, 'src')
 
@@ -26,11 +27,17 @@ export default defineConfig(() => ({
     AutoImport({
       imports: ['solid-js'],
     }),
-    Components({
-      resolvers: [],
-    }),
     devtools(),
     solid(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        theme_color: "#ffffff"
+      },
+      devOptions: {
+        enabled: true
+      },
+    }),
   ],
   server: {
     port: 3000,
