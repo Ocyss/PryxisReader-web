@@ -6,17 +6,10 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
-      "@": [
-        "./src"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@": ["./src"],
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "vite/client",
-      "vite-plugin-pwa/solid"
-    ],
+    "types": ["vite/client", "vite-plugin-pwa/solid"],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noEmit": true,
@@ -29,13 +22,6 @@
       }
     ]
   },
-  "include": [
-    "src",
-    "scripts",
-    "vite.config.ts",
-    "tailwind.config.ts",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "scripts", "vite.config.ts", "auto-imports.d.ts"],
+  "exclude": ["node_modules"]
 }

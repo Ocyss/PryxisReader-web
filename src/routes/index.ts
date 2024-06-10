@@ -1,14 +1,12 @@
-import { lazy } from 'solid-js'
+import type { RouteDefinition } from "@solidjs/router";
 
-const routes = [
-  {
-    path: '/test1',
-    component: lazy(() => import('@/pages/test1.tsx')),
-  },
-  {
-    path: '/test2',
-    component: lazy(() => import('@/pages/test2.tsx')),
-  },
-]
+import Content from "@/pages/content";
 
-export default routes
+const routes: RouteDefinition[] = [
+  {
+    component: Content,
+    path: ["/", "/content/:id"],
+  },
+];
+
+export default routes;

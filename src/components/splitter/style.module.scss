@@ -1,0 +1,43 @@
+@mixin splitter {
+  @apply relative;
+  &::after {
+    @apply absolute bg-base-content/50;
+    transition-duration: 0.2s;
+    border-radius: 2px;
+    content: "";
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    &:hover,
+    &.splitterMoving {
+      @apply bg-primary/60;
+      cursor: ew-resize;
+    }
+  }
+}
+
+.splitterVert {
+  @include splitter;
+  @apply w-2 cursor-ew-resize;
+  &::after {
+    @apply h-8;
+    &:hover,
+    &.splitterMoving {
+      @apply h-full;
+    }
+  }
+}
+
+.splitterHorz {
+  @include splitter;
+  @apply h-2 cursor-ns-resize;
+  &::after {
+    @apply w-8;
+    &:hover,
+    &.splitterMoving {
+      @apply w-full;
+    }
+  }
+}

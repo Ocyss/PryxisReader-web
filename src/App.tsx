@@ -1,32 +1,25 @@
-import type { Component } from 'solid-js'
-import type { RouteSectionProps } from '@solidjs/router'
-import { useMouse } from 'solidjs-use'
-import styles from './App.module.scss'
-import Test from '@/components/test'
+import type { RouteSectionProps } from "@solidjs/router";
+import type { Component } from "solid-js";
+
+import { ui } from "@/stores/ui";
+import { Header } from "@/views/header";
+import { Sidebar } from "@/views/sidebar";
 
 const App: Component<RouteSectionProps> = (props) => {
-  const { x, y } = useMouse()
   return (
-    <>
-      <nav>
-        <p>
-          <a href="/test1">t1</a>
-        </p>
-        <p>
-          <a href="/test2">t2</a>
-        </p>
-      </nav>
-      <div class={styles.app}>
-        <Test />
+    <div class="flex h-[100vh] flex-col bg-base-200 p-3 pt-0" id="app">
+      <Header />
+      <div
+        class="drawer flex h-full flex-row"
+        style={{ "padding-top": `${ui.header.heigth}px` }}
+      >
+        <Sidebar />
+        <div class="drawer-content contents flex-1 flex-row">
+          {props.children}
+        </div>
       </div>
-      {props.children}
-      <h1>
-        {x()}
-        x
-        {y()}
-      </h1>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
