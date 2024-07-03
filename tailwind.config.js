@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
-
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  darkMode: ["class", '[data-theme="dark"]'],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+  ],
   // eslint-disable-next-line perfectionist/sort-objects
   daisyui: {
     themes: [
@@ -41,6 +45,13 @@ module.exports = {
     ],
   },
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {},
   },
 };

@@ -1,12 +1,28 @@
+import {
+  Resizable,
+  ResizableHandle,
+  ResizablePanel,
+} from "@/components/ui/resizable";
+import { setUi, ui } from "@/stores/ui";
 import layout from "@/styles/layout.module.scss";
 
 import Catalog from "./catalog";
 
 export default () => {
   return (
-    <>
-      <Catalog />
-      <div class={`${layout.layoutScroll} flex-1`}>
+    <Resizable orientation="horizontal">
+      <ResizablePanel
+        class={`${layout.layoutScroll} bg-base`}
+        initialSize={ui.content.catalog}
+        minSize={0.2}
+        onResize={(size) => {
+          setUi("content", "catalog", size);
+        }}
+      >
+        <Catalog />
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel class={`${layout.layoutScroll} flex-1`}>
         <article class="prose">
           <h1>Garlic bread with cheese: What the science tells us</h1>
           <p>
@@ -20,7 +36,7 @@ export default () => {
             to a series of rabies cases springing up around the country.
           </p>
         </article>
-      </div>
-    </>
+      </ResizablePanel>
+    </Resizable>
   );
 };

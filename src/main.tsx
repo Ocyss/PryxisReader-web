@@ -6,7 +6,7 @@ import { render } from "solid-js/web";
 import { themeChange } from "theme-change";
 
 import App from "./App";
-import "./index.css";
+import "./app.css";
 
 onMount(() => {
   themeChange();
